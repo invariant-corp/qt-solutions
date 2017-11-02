@@ -9,6 +9,7 @@
 
 void QtRangeSlider::initStyleOption(QStyleOptionSlider* option, QtRangeSlider::SpanHandle handle) const
 {
+    QSlider::initStyleOption( option );
     option->sliderPosition = (handle == QtRangeSlider::LowerHandle ? lowerPos : upperPos);
     option->sliderValue = (handle == QtRangeSlider::LowerHandle ? lower : upper);
 }
