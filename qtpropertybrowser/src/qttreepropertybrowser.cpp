@@ -146,7 +146,7 @@ QtPropertyEditorView::QtPropertyEditorView(QWidget *parent) :
 
 void QtPropertyEditorView::drawRow(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    QStyleOptionViewItemV3 opt = option;
+    QStyleOptionViewItem opt = option;
     bool hasValue = true;
     if (m_editorPrivate) {
         QtProperty *property = m_editorPrivate->indexToProperty(index);
@@ -348,7 +348,7 @@ void QtPropertyEditorDelegate::paint(QPainter *painter, const QStyleOptionViewIt
         if (property)
             hasValue = property->hasValue();
     }
-    QStyleOptionViewItemV3 opt = option;
+    QStyleOptionViewItem opt = option;
     if ((m_editorPrivate && index.column() == 0) || !hasValue) {
         QtProperty *property = m_editorPrivate->indexToProperty(index);
         if (property && property->isModified()) {
@@ -782,6 +782,22 @@ QtTreePropertyBrowser::~QtTreePropertyBrowser()
 {
     delete d_ptr;
 }
+
+
+QByteArray QtTreePropertyBrowser::saveState() const
+{
+   return d_ptr->m_treeWidget->header()->saveState();
+
+} // end saveState
+
+
+bool QtTreePropertyBrowser::restoreState( const QByteArray& state )
+{
+   return d_ptr->m_treeWidget->header()->restoreState( state );
+
+} // end restoreState
+
+
 
 /*!
     \property QtTreePropertyBrowser::indentation

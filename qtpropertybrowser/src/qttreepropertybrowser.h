@@ -108,6 +108,9 @@ public:
 
     void editItem(QtBrowserItem *item);
 
+    QByteArray saveState() const;
+    bool restoreState( const QByteArray& state );
+
 Q_SIGNALS:
 
     void collapsed(QtBrowserItem *item);
