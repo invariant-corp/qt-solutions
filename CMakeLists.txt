@@ -1,6 +1,10 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.11)
 PROJECT(QtSolutions)
 
+SET( MAJOR_VERSION 1 )
+SET( MINOR_VERSION 0 )
+SET( PATCH_VERSION 1 )
+
 ########################### Misc. Configs ##############################
 # Add custom cmake files folder
 SET (PROJECT_CMAKE_DIR ${PROJECT_SOURCE_DIR}/cmake)

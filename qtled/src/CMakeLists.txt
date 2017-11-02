@@ -4,10 +4,6 @@ FIND_PACKAGE(Qt5Widgets REQUIRED)
 FIND_PACKAGE(Qt5Designer REQUIRED)
 FIND_PACKAGE(Qt5UiPlugin REQUIRED)
 
-IF(MSVC AND BUILD_SHARED_LIBS)
-
-ENDIF()
-
 if(WIN32)
     ADD_DEFINITIONS( -DQT_UIPLUGIN_LIB )
     ADD_DEFINITIONS( -DQT_DESIGNER_LIB )
@@ -28,7 +24,7 @@ set(_SRCS
   )
 
 set( _HEADERS
-	qtled.h
+   qtled.h
    qtledplugin.h
 )
 
@@ -54,6 +50,10 @@ add_library(${TARGET_NAME}
 target_link_libraries(${TARGET_NAME} Qt5::Widgets)
 target_link_libraries(${TARGET_NAME} Qt5::Designer)
 target_link_libraries(${TARGET_NAME} Qt5::UiPlugin)
+
+IF(UNIX)
+   set_target_properties(${TARGET_NAME} PROPERTIES VERSION ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION} SOVERSION ${MAJOR_VERSION})
+endif()
 
 ######################### Installation Stuff ###########################
 include(GenerateExportHeader)

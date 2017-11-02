@@ -55,6 +55,10 @@ target_link_libraries(${TARGET_NAME} Qt5::Widgets)
 target_link_libraries(${TARGET_NAME} Qt5::Designer)
 target_link_libraries(${TARGET_NAME} Qt5::UiPlugin)
 
+IF(UNIX)
+   set_target_properties(${TARGET_NAME} PROPERTIES VERSION ${MAJOR_VERSION}.${MINOR_VERSION}.${PATCH_VERSION} SOVERSION ${MAJOR_VERSION})
+endif()
+
 ######################### Installation Stuff ###########################
 include(GenerateExportHeader)
 generate_export_header(${TARGET_NAME})
