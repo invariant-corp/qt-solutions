@@ -13,7 +13,7 @@ ENDIF(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 # Offer the user the choice of overriding the installation directories
 SET(INSTALL_LIB_DIR lib CACHE PATH "Install dir for libraries")
 SET(INSTALL_BIN_DIR bin CACHE PATH "Install dir for executables")
-SET(INSTALL_INCLUDE_DIR include/${PROJECT_NAME} CACHE PATH "Install dir for headers")
+SET(INSTALL_INCLUDE_DIR include CACHE PATH "Install dir for headers")
 IF(WIN32 AND NOT CYGWIN)
   SET(DEF_INSTALL_CMAKE_DIR CMake)
 ELSE()
