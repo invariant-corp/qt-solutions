@@ -12,6 +12,10 @@ SET (CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_CMAKE_DIR}")
 
 option(BUILD_SHARED_LIBS "Build shared library" ON)
 
+#if(UNIX)
+  include(GNUInstallDirs)
+#endif()
+
 # Add custom Compile Settings and flags
 INCLUDE(CompileSettings)
 
